@@ -1,0 +1,18 @@
+{
+	"author": "T. Jameson Little <t.jameson.little@gmail.com>",
+	"name": "gzip-js",
+	"description": "GZIP in pure JavaScript (works in the browser)",
+	"version": "0.1.0",
+	"repository": {
+		"url": ""
+	},
+	"main": "index.js",
+	"engines": {
+		"node": "~0.4.10"
+	},
+	"dependencies": {
+		"crc32": "*",
+		"deflate-js": "*"
+	},
+	"devDependencies": {}
+}
