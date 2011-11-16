@@ -48,8 +48,8 @@ def runTest(tFile, level=None, delete=True):
 
 		return passed
 
-	out1 = os.path.join(outDir, os.path.basename(tFile) + '.gz')
-	out2 = os.path.join(outDir, os.path.basename(tFile) + '.out.gz')
+	out1 = os.path.join(outDir, '%(file)s.%(level)d.gz' % {'file': os.path.basename(tFile), 'level' : level})
+	out2 = os.path.join(outDir, '%(file)s.%(level)d.out.gz' % {'file': os.path.basename(tFile), 'level' : level})
 
 	run_cmd('gzip -c -%(level)d %(file)s > %(outfile)s' % {'level' : level, 'file' : tFile, 'outfile' : out1})
 	run_cmd('../bin/runner.js --level %(level)d --file %(file)s --output %(output)s' % {'level' : level, 'file' : tFile, 'output' : out2})
