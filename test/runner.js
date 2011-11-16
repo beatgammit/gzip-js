@@ -2,11 +2,12 @@
 	'use strict';
 
 	var fs = require('fs'),
-		gzip = require('../index.js'),
+		gzip = require('../lib/gzip.js'),
 		data,
 		out,
 		file = 'test.txt',
 		options = {
+			level: 6,
 			name: file,
 			timestamp: parseInt(fs.lstatSync(file).mtime.getTime() / 1000)
 		};
