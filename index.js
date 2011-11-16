@@ -49,14 +49,10 @@
 		putShort(n >>> 16);
 	}
 
-	function putString(s, terminating) {
+	function putString(s) {
 		var i, len = s.length;
 		for (i = 0; i < len; i += 1) {
 			putByte(s.charCodeAt(i));
-		}
-
-		if (terminating) {
-			putByte(0);
 		}
 	}
 
@@ -66,8 +62,9 @@
 	 *
 	 * Omitted parts in this implementation:
 	 */
-	function zip(data, level, fileData, saveName) {
+	function zip(data, options) {
 		var flags = 0,
+			level = options.level || 6,
 			crc;
 
 		// magic number marking this file as GZIP
@@ -76,12 +73,12 @@
 
 		putByte(compressionMethods['deflate']);
 
-		if (saveName) {
+		if (options.name) {
 			flags |= flagMap.origName;
 		}
 
 		putByte(flags);
-		putLong(parseInt(fileData.mtime.getTime() / 1000, 10));
+		putLong(options.timestamp || parseInt(Date.now() / 1000, 10));
 
 		// put deflate args (extra flags)
 		if (level === 1) {
@@ -97,12 +94,15 @@
 		// OS identifier
 		putByte(osMap[os]);
 
-		if (saveName) {
+		if (options.name) {
 			// ignore the directory part
-			putString(saveName.substring(saveName.lastIndexOf('/') + 1), true);
+			putString(options.name.substring(options.name.lastIndexOf('/') + 1));
+
+			// terminating null
+			putByte(0);
 		}
 
-		putString(deflate.deflate(data));
+		putString(deflate.deflate(data, level));
 
 		putLong(parseInt(crc32(data), 16));
 		putLong(data.length);
