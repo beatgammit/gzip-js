@@ -7,6 +7,9 @@
 		"url": ""
 	},
 	"main": "./lib/gzip.js",
+	"bin": {
+		"gzip-js": "./bin/runner.js"
+	},
 	"engines": {
 		"node": "~0.4.10"
 	},
@@ -14,5 +17,7 @@
 		"crc32": "*",
 		"deflate-js": "*"
 	},
-	"devDependencies": {}
+	"devDependencies": {
+		"optimist": "~0.2"
+	}
 }
