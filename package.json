@@ -14,8 +14,8 @@
 		"node": "~0.4.10"
 	},
 	"dependencies": {
-		"crc32": "*",
-		"deflate-js": "*"
+		"crc32": ">= 0.2.1",
+		"deflate-js": ">= 0.2.1"
 	},
 	"devDependencies": {
 		"optimist": "~0.2"

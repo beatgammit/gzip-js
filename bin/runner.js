@@ -20,7 +20,7 @@
 			.demand(['file', 'output']).argv;
 
 	stat = fs.statSync(argv.file);
-	out = gzip.zip(fs.readFileSync(argv.file, 'utf8'), {
+	out = gzip.zip(fs.readFileSync(argv.file), {
 		name: argv.file,
 		level: argv.level,
 		timestamp: parseInt(Math.round(stat.mtime.getTime() / 1000))

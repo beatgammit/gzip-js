@@ -14,7 +14,7 @@ There is only one function so far, zip:
 
 function zip(data[, options])
  
-* data- String of text to compress
+* data- String of text or byte array to compress
 * options- object with options; options include:
   * level- compression level (1-9); default 6
   * timestamp- UNIX timestamp (seconds); if omitted, the current time will be used
