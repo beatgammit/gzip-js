@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
 import os
+import sys
+import shutil
 import json
 import subprocess as sp
 from colorama import Fore
@@ -106,11 +108,12 @@ if inFile != None:
 else:
 	allPassed = runAll(level, delete)
 
+# if we deleted all the files that were created, delete the directory
+if delete == True:
+	shutil.rmtree(outDir)
+
 if allPassed:
 	print Fore.GREEN + 'All tests passed!' + Fore.RESET
 else:
 	print Fore.RED + 'Automated test failed' + Fore.RESET
-
-# if we deletede all the files that were created, delete the directory
-if delete == True:
-	os.rmdir(outDir)
+	sys.exit(1)

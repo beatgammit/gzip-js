@@ -2,13 +2,16 @@
 	"author": "T. Jameson Little <t.jameson.little@gmail.com>",
 	"name": "gzip-js",
 	"description": "GZIP in pure JavaScript (works in the browser)",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"repository": {
 		"url": ""
 	},
 	"main": "./lib/gzip.js",
 	"bin": {
 		"gzip-js": "./bin/runner.js"
+	},
+	"scripts": {
+		"test": "cd test; ./runner.py; cd -"
 	},
 	"engines": {
 		"node": "~0.4.10"
