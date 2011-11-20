@@ -2,7 +2,7 @@
 	"author": "T. Jameson Little <t.jameson.little@gmail.com>",
 	"name": "gzip-js",
 	"description": "GZIP in pure JavaScript (works in the browser)",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"repository": {
 		"url": ""
 	},

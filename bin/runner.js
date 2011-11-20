@@ -17,7 +17,7 @@
 				'l': 'level'
 			})
 			.default('level', gzip.DEFAULT_LEVEL)
-			.demand(['file', 'output']).argv;
+			.demand(['file']).argv;
 
 	stat = fs.statSync(argv.file);
 	out = gzip.zip(fs.readFileSync(argv.file), {
@@ -26,5 +26,5 @@
 		timestamp: parseInt(Math.round(stat.mtime.getTime() / 1000))
 	});
 
-	fs.writeFileSync(argv.output, new Buffer(out));
+	fs.writeFileSync(argv.output || argv.file + '.gz', new Buffer(out));
 }());
