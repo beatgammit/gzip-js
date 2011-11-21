@@ -1,0 +1,30 @@
+body {
+	background-color: rgb(200, 200, 255);
+	font-size: 14pt;
+}
+
+h1 {
+	text-align: center;
+}
+
+h1, h2, h3 {
+	color: rgb(10, 10, 100);
+}
+
+textarea {
+	background-color: rgb(51, 51, 51);
+	color: rgb(100, 175, 200);
+	border-radius: 8px;
+}
+
+#example {
+	width: 90%;
+	height: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#example textarea {
+	width: 100%;
+	height: 100%;
+}

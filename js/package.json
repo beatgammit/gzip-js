@@ -1,0 +1,15 @@
+{
+	"author": "T. Jameson Little",
+	"name": "js",
+	"version": "0.0.0",
+	"main": "./main.js",
+	"dependencies": {
+		"qwery": "~2",
+		"bean": "*",
+		"bonzo": "*",
+		"domready": "*",
+		"crc32": ">= 0.2.2",
+		"deflate-js": ">= 0.2.2",
+		"toDataURL": ">= 0.1.0"
+	}
+}
