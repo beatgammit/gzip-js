@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/beatgammit/gzip-js.png)](http://travis-ci.org/beatgammit/gzip-js)
 Intro
 =====
 
