@@ -1,3 +1,4 @@
 *.gz
 node_modules
 *.pyc
+dist
