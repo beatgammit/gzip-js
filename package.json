@@ -14,7 +14,8 @@
 		"gunzip-js": "./bin/gunzip.js"
 	},
 	"scripts": {
-		"test": "cd test; ./runner.py; cd -"
+		"test": "cd test; ./runner.py; cd -",
+		"build": "rollup -c ./build/rollup.config.js"
 	},
 	"engines": {
 		"node": ">= 0.4.0"
@@ -24,6 +25,9 @@
 		"deflate-js": ">= 0.2.2"
 	},
 	"devDependencies": {
-		"optimist": "~0.2"
+		"optimist": "~0.2",
+		"rollup": "^0.56.3",
+		"rollup-plugin-commonjs": "^8.3.0",
+		"rollup-plugin-node-resolve": "^3.0.3"
 	}
 }
