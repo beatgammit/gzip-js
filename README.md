@@ -11,7 +11,7 @@ The main goal of this project is to bring GZIP compression to the browser.
 There is only one function so far, zip:
 
 function zip(data[, options])
- 
+
 * data- String of text or byte array to compress
 * options- object with options; options include:
   * level- compression level (1-9); default 6
