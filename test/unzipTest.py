@@ -41,9 +41,10 @@ def runTest(tFile, level=None, outDir=outDirDefault):
         passed = False
         status = Fore.RED + 'FAILED' + Fore.RESET
 
-    print ('Level %(level)d: %(status)s' % {'level': level, 'status': status})
+    print('Level %(level)d: %(status)s' % {'level': level, 'status': status})
 
     return passed
+
 
 """
 Runs all tests on the given level. This iterates throuth the testDir directory
@@ -58,11 +59,11 @@ def runAll(level=None, testDir=testDirDefault, outDir=outDirDefault):
     for tFile in os.listdir(testDir):
         fullPath = os.path.join(testDir, tFile)
 
-        print (Fore.YELLOW + tFile + Fore.RESET)
+        print(Fore.YELLOW + tFile + Fore.RESET)
 
         if runTest(fullPath, level) is False:
             passed = False
 
-        print ('')
+        print('')
 
     return passed
