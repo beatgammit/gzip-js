@@ -24,6 +24,6 @@
 		"deflate-js": ">= 0.2.2"
 	},
 	"devDependencies": {
-		"optimist": "~0.2"
+		"optimist": "0.2.8"
 	}
 }
