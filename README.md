@@ -1,5 +1,4 @@
-Intro
-=====
+## Intro
 
 *gzip-js* is a pure JavaScript implementation of the GZIP file format. It uses the DEFLATE algorithm for compressing data.
 
@@ -7,8 +6,7 @@ Please note that since this is a pure JavaScript implementation, it should NOT b
 
 The main goal of this project is to bring GZIP compression to the browser.
 
-API
-===
+## API
 
 There is only one function so far, zip:
 
