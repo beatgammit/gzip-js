@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 
-(function() {
-    'use strict';
+(function () {
+    "use strict";
 
-    var fs = require('fs'),
-        optimist = require('optimist'),
-        gzip = require('../lib/gzip.js'),
-        argv,
-        stat,
-        out;
+    var fs = require("fs");
+    var optimist = require("optimist");
+    var gzip = require("../lib/gzip.js");
+    var argv;
+    var stat;
+    var out;
 
-    argv = optimist.usage('Usage: $0 --file [filename] --output [filename]')
+    argv = optimist.usage("Usage: $0 --file [filename] --output [filename]")
         .alias({
-            'f': 'file',
-            'o': 'output'
+            "f": "file",
+            "o": "output"
         })
-        .demand(['file']).argv;
+        .demand(["file"]).argv;
 
     stat = fs.statSync(argv.file);
     out = gzip.unzip(fs.readFileSync(argv.file), {
@@ -23,5 +23,5 @@
         timestamp: parseInt(Math.round(stat.mtime.getTime() / 1000))
     });
 
-    fs.writeFileSync(argv.output || argv.file.replace(/\.gz$/, ''), new Buffer(out));
+    fs.writeFileSync(argv.output || argv.file.replace(/\.gz$/, ""), new Buffer(out));
 }());
