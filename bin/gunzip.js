@@ -6,7 +6,6 @@
 		optimist = require('optimist'),
 		gzip = require('../lib/gzip.js'),
 		argv,
-		level,
 		stat,
 		out;
 
