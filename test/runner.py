@@ -32,7 +32,7 @@ IN_FILE = getattr(ARGS, 'file')
 TEST = getattr(ARGS, 'test')
 
 if TEST in ('zip', 'both'):
-    print (Fore.CYAN + 'Running zip tests' + Fore.RESET)
+    print(Fore.CYAN + 'Running zip tests' + Fore.RESET)
     # if the user specifies a file, only run that test
     if IN_FILE is not None:
         ALL_PASSED = zipTest.runTest(IN_FILE, LEVEL)
@@ -40,7 +40,7 @@ if TEST in ('zip', 'both'):
         ALL_PASSED = zipTest.runAll(LEVEL)
 
 if TEST in ('unzip', 'both'):
-    print (Fore.CYAN + 'Running unzip tests' + Fore.RESET)
+    print(Fore.CYAN + 'Running unzip tests' + Fore.RESET)
     # if the user specifies a file, only run that test
     if IN_FILE is not None:
         ALL_PASSED = unzipTest.runTest(IN_FILE, LEVEL)
