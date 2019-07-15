@@ -22,9 +22,9 @@ outDir = 'test-outs'
 
 # make the test-outs directory
 try:
-	os.mkdir(outDir)
+    os.mkdir(outDir)
 except:
-	pass
+    pass
 
 delete = not getattr(args, 'no_delete')
 level = getattr(args, 'level')
@@ -32,26 +32,26 @@ inFile = getattr(args, 'file')
 test = getattr(args, 'test')
 
 if test == 'zip' or test == 'both':
-	print Fore.CYAN + 'Running zip tests' + Fore.RESET
-	# if the user specifies a file, only run that test
-	if inFile != None:
-		allPassed = zipTest.runTest(inFile, level)
-	else:
-		allPassed = zipTest.runAll(level)
+    print (Fore.CYAN + 'Running zip tests' + Fore.RESET)
+    # if the user specifies a file, only run that test
+    if inFile != None:
+        allPassed = zipTest.runTest(inFile, level)
+    else:
+        allPassed = zipTest.runAll(level)
 
 if test == 'unzip' or test == 'both':
-	print Fore.CYAN + 'Running unzip tests' + Fore.RESET
-	# if the user specifies a file, only run that test
-	if inFile != None:
-		allPassed = unzipTest.runTest(inFile, level)
-	else:
-		allPassed = unzipTest.runAll(level)
+    print (Fore.CYAN + 'Running unzip tests' + Fore.RESET)
+    # if the user specifies a file, only run that test
+    if inFile != None:
+        allPassed = unzipTest.runTest(inFile, level)
+    else:
+        allPassed = unzipTest.runAll(level)
 
 if delete:
-	shutil.rmtree(outDir)
+    shutil.rmtree(outDir)
 
 if allPassed:
-	print Fore.GREEN + 'All tests passed!' + Fore.RESET
+    print (Fore.GREEN + 'All tests passed!' + Fore.RESET)
 else:
-	print Fore.RED + 'Automated test failed' + Fore.RESET
-	sys.exit(1)
+    print (Fore.RED + 'Automated test failed' + Fore.RESET)
+    sys.exit(1)
