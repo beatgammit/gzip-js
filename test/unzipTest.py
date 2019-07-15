@@ -16,32 +16,38 @@ Run a single test
 def runTest(tFile, level=None, outDir=outDirDefault):
     passed = True
 
-    if level == None:
+    if level is None:
         for x in range(1, 10):
-            if runTest(tFile, x) == False:
+            if runTest(tFile, x) is False:
                 passed = False
 
         return passed
 
-    out1 = os.path.join(outDir, '%(file)s.%(level)d.gz' % {'file': os.path.basename(tFile), 'level' : level})
-    out2 = os.path.join(outDir, '%(file)s.%(level)d' % {'file' : os.path.basename(tFile), 'level' : level})
+    out1 = os.path.join(outDir, '%(file)s.%(level)d.gz'
+                        % {'file': os.path.basename(tFile), 'level': level})
+    out2 = os.path.join(outDir, '%(file)s.%(level)d'
+                        % {'file': os.path.basename(tFile), 'level': level})
 
-    run_cmd('gzip -%(level)d -c %(file)s >> %(output)s' % {'level' : level, 'file' : tFile, 'output' : out1})
-    run_cmd('../bin/gunzip.js --file %(file)s --output %(output)s' % {'level' : level, 'file' : out1, 'output' : out2})
+    run_cmd('gzip -%(level)d -c %(file)s >> %(output)s'
+            % {'level': level, 'file': tFile, 'output': out1})
+    run_cmd('../bin/gunzip.js --file %(file)s --output %(output)s'
+            % {'level': level, 'file': out1, 'output': out2})
 
-    result = run_cmd('diff %(file1)s %(file2)s' % {'file1' : tFile, 'file2' : out2})
+    result = run_cmd('diff %(file1)s %(file2)s'
+                     % {'file1': tFile, 'file2': out2})
     if result['returncode'] == 0:
         status = Fore.GREEN + 'PASSED' + Fore.RESET
     else:
         passed = False
         status = Fore.RED + 'FAILED' + Fore.RESET
-    
-    print ('Level %(level)d: %(status)s' % {'level' : level, 'status' : status})
+
+    print ('Level %(level)d: %(status)s' % {'level': level, 'status': status})
 
     return passed
 
 """
-Runs all tests on the given level. This iterates throuth the testDir directory defined above.
+Runs all tests on the given level. This iterates throuth the testDir directory
+defined above.
 @param level- The level to run on [1-9] (default: None, runs on all levels all)
 @return True if all levels passed, False if at least one failed
 """
@@ -54,9 +60,9 @@ def runAll(level=None, testDir=testDirDefault, outDir=outDirDefault):
 
         print (Fore.YELLOW + tFile + Fore.RESET)
 
-        if runTest(fullPath, level) == False:
+        if runTest(fullPath, level) is False:
             passed = False
 
         print ('')
-    
+
     return passed
