@@ -4,9 +4,9 @@ import os
 import sys
 import shutil
 import argparse
+from colorama import Fore
 import zipTest
 import unzipTest
-from colorama import Fore
 
 PARSER = argparse.ArgumentParser(description='Process command-line arguments')
 PARSER.add_argument('--file', '-f', metavar='path/to/file', type=str, nargs='?', help='Path to file to use for test')
@@ -35,17 +35,17 @@ if TEST in ('zip', 'both'):
     print(Fore.CYAN + 'Running zip tests' + Fore.RESET)
     # if the user specifies a file, only run that test
     if IN_FILE is not None:
-        ALL_PASSED = zipTest.runTest(IN_FILE, LEVEL)
+        ALL_PASSED = zipTest.run_test(IN_FILE, LEVEL)
     else:
-        ALL_PASSED = zipTest.runAll(LEVEL)
+        ALL_PASSED = zipTest.run_all(LEVEL)
 
 if TEST in ('unzip', 'both'):
     print(Fore.CYAN + 'Running unzip tests' + Fore.RESET)
     # if the user specifies a file, only run that test
     if IN_FILE is not None:
-        ALL_PASSED = unzipTest.runTest(IN_FILE, LEVEL)
+        ALL_PASSED = unzipTest.run_test(IN_FILE, LEVEL)
     else:
-        ALL_PASSED = unzipTest.runAll(LEVEL)
+        ALL_PASSED = unzipTest.run_all(LEVEL)
 
 if DELETE:
     shutil.rmtree(OUT_DIR)
