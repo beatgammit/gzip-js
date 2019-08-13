@@ -1,5 +1,4 @@
-Intro
-=====
+## Intro
 
 *gzip-js* is a pure JavaScript implementation of the GZIP file format. It uses the DEFLATE algorithm for compressing data.
 
@@ -7,13 +6,12 @@ Please note that since this is a pure JavaScript implementation, it should NOT b
 
 The main goal of this project is to bring GZIP compression to the browser.
 
-API
-===
+## API
 
 There is only one function so far, zip:
 
 function zip(data[, options])
- 
+
 * data- String of text or byte array to compress
 * options- object with options; options include:
   * level- compression level (1-9); default 6
@@ -23,11 +21,11 @@ function zip(data[, options])
 Sample usage:
 
     var gzip = require('gzip-js'),
-		options = {
-			level: 3,
-			name: 'hello-world.txt',
-			timestamp: parseInt(Date.now() / 1000, 10)
-		};
+        options = {
+            level: 3,
+            name: 'hello-world.txt',
+            timestamp: parseInt(Date.now() / 1000, 10)
+        };
 
-	// out will be a JavaScript Array of bytes
-	var out = gzip.zip('Hello world', options);
+    // out will be a JavaScript Array of bytes
+    var out = gzip.zip('Hello world', options);
